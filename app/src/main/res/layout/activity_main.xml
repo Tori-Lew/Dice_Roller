@@ -36,4 +36,22 @@
         android:src="@drawable/dice_1"
         app:tint="@color/red_900" />
 
+    <ImageView
+        android:id="@+id/dice4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/dice_one"
+        android:src="@drawable/dice_1"
+        app:tint="@color/red_900" />
+
+    <ImageView
+        android:id="@+id/dice5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/dice_one"
+        android:src="@drawable/dice_1"
+        app:tint="@color/red_900" />
+
 </LinearLayout>

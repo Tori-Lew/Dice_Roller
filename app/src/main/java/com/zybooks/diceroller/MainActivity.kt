@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.zybooks.diceroller.databinding.ActivityMainBinding
 
-const val MAX_DICE = 3
+const val MAX_DICE = 5
 
 class MainActivity : AppCompatActivity(),
     RollLengthDialogFragment.OnRollLengthSelectedListener {
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(),
 
         // Create list of ImageViews
         diceImageViewList = mutableListOf(
-            binding.dice1, binding.dice2, binding.dice3)
+            binding.dice1, binding.dice2, binding.dice3, binding.dice4, binding.dice5)
 
         showDice()
         registerForContextMenu(diceImageViewList[0])
@@ -79,6 +79,16 @@ class MainActivity : AppCompatActivity(),
             }
             R.id.action_three -> {
                 changeDiceVisibility(3)
+                showDice()
+                true
+            }
+            R.id.action_four -> {
+                changeDiceVisibility(4)
+                showDice()
+                true
+            }
+            R.id.action_five -> {
+                changeDiceVisibility(5)
                 showDice()
                 true
             }
