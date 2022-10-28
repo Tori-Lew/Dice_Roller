@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.*
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.GestureDetectorCompat
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity(),
     private var timer: CountDownTimer? = null
     private var timerLength = 2000L
     private var selectedDie = 0
+    private var diceTotal = 0
     //private var initTouchX = 0
     //private lateinit var gestureDetector: GestureDetectorCompat
 
@@ -182,6 +184,11 @@ class MainActivity : AppCompatActivity(),
 
             override fun onFinish() {
                 optionsMenu.findItem(R.id.action_stop).isVisible = false
+                for (i in 0 until numVisibleDice) {
+                    diceTotal += diceList[i].number
+                }
+                Toast.makeText(applicationContext, "Total Dice: " + diceTotal, Toast.LENGTH_LONG).show()
+                diceTotal = 0
             }
         }.start()
     }
@@ -227,4 +234,5 @@ class MainActivity : AppCompatActivity(),
             else -> super.onContextItemSelected(item)
         }
     }
+
 }
