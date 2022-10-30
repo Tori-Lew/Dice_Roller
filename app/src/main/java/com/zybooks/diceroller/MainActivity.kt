@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(),
     private var selectedDie = 0
     private var diceTotal = 0
     //private var initTouchX = 0
-    //private lateinit var gestureDetector: GestureDetectorCompat
+    private lateinit var gestureDetector: GestureDetectorCompat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,37 +46,37 @@ class MainActivity : AppCompatActivity(),
         showDice()
 
         //Register context menus for all dice and tag each die
-        for (i in 0 until diceImageViewList.size) {
+        /*for (i in 0 until diceImageViewList.size) {
             registerForContextMenu(diceImageViewList[i])
             diceImageViewList[i].tag = i
-        }
+        }*/
 
         // Moving finger left or right changes dice number
         /*diceImageViewList[0].setOnTouchListener { v, event ->
             var returnVal = true
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    initTouchX = event.x.toInt()
+                    initTouchX = event.y.toInt()
                 }
                 MotionEvent.ACTION_MOVE -> {
-                    val x = event.x.toInt()
+                    val y = event.y.toInt()
 
                     // See if movement is at least 20 pixels
-                    if (abs(x - initTouchX) >= 20) {
-                        if (x > initTouchX) {
+                    if (abs(y - initTouchX) >= 20) {
+                        if (y > initTouchX) {
                             diceList[0].number++
                         } else {
                             diceList[0].number--
                         }
                         showDice()
-                        initTouchX = x
+                        initTouchX = y
                     }
                 }
                 else -> returnVal = false
             }
             returnVal
         }*/
-        /* gestureDetector = GestureDetectorCompat(this,
+        gestureDetector = GestureDetectorCompat(this,
             object : GestureDetector.SimpleOnGestureListener() {
                 override fun onDown(e: MotionEvent?): Boolean {
                     return true
@@ -91,15 +91,15 @@ class MainActivity : AppCompatActivity(),
                     return true
                 }
             }
-        )*/
+        )
     }
 
-    /*override fun onTouchEvent(event: MotionEvent?): Boolean {
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
         if (event != null) {
             gestureDetector.onTouchEvent(event)
         }
         return super.onTouchEvent(event)
-    }*/
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.appbar_menu, menu)
