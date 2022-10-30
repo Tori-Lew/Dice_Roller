@@ -90,6 +90,17 @@ class MainActivity : AppCompatActivity(),
                     }
                     return true
                 }
+                override fun onDoubleTap(e: MotionEvent?): Boolean {
+                    for (i in 0 until numVisibleDice) {
+                        if(diceList[i].number == 6){
+                            diceList[i].number = 1
+                        }else{
+                            diceList[i].number++
+                        }
+                    }
+                    showDice()
+                    return true
+                }
             }
         )
     }
